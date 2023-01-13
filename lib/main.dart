@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'hooks/image_rotate_widget.dart';
+import 'hooks/lifecycle_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const ImageEditingWidget(),
+      home: const ApplicationLifecycle(),
     );
   }
 }

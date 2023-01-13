@@ -105,7 +105,6 @@ class ImageEditingWidget extends HookWidget {
       initialState: const State.zero(),
       initialAction: null,
     );
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Image editor'),
