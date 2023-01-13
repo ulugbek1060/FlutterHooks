@@ -27,7 +27,6 @@ class CoutnDownWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('run...');
     final countDown = useMemoized(() => CountDown(from: 20));
     final notifier = useListenable(countDown);
     return Scaffold(
