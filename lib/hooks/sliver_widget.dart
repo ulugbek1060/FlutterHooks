@@ -42,7 +42,6 @@ class SliverWidget extends HookWidget {
           final normalized = newOpasity.normalized(0.0, 300.0).toDouble();
           animatedOpasity.value = normalized;
           animatedSize.value = normalized;
-          print(normalized);
         });
         return null;
       },
