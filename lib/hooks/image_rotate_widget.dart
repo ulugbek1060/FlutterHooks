@@ -115,29 +115,17 @@ class ImageEditingWidget extends HookWidget {
           children: [
             Row(
               children: [
-                TextButton(
-                  onPressed: () {
-                    store.dispatch(Actions.rotateRight);
-                  },
-                  child: const Text('Rotate Right'),
+                Expanded(
+                  child: RotateRightButton(store: store),
                 ),
-                TextButton(
-                  onPressed: () {
-                    store.dispatch(Actions.rotateLeft);
-                  },
-                  child: const Text('Rotate Left'),
+                Expanded(
+                  child: RotateLeftButton(store: store),
                 ),
-                TextButton(
-                  onPressed: () {
-                    store.dispatch(Actions.increaseAlpha);
-                  },
-                  child: const Text('+ Alpha'),
+                Expanded(
+                  child: IncreaseAlphaButton(store: store),
                 ),
-                TextButton(
-                  onPressed: () {
-                    store.dispatch(Actions.decreaseAlpha);
-                  },
-                  child: const Text('- Alpha'),
+                Expanded(
+                  child: DecreseAlphaButton(store: store),
                 )
               ],
             ),
@@ -153,6 +141,82 @@ class ImageEditingWidget extends HookWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class DecreseAlphaButton extends StatelessWidget {
+  const DecreseAlphaButton({
+    Key? key,
+    required this.store,
+  }) : super(key: key);
+
+  final Store<State, Actions?> store;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        store.dispatch(Actions.decreaseAlpha);
+      },
+      child: const Text('- Alpha'),
+    );
+  }
+}
+
+class IncreaseAlphaButton extends StatelessWidget {
+  const IncreaseAlphaButton({
+    Key? key,
+    required this.store,
+  }) : super(key: key);
+
+  final Store<State, Actions?> store;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        store.dispatch(Actions.increaseAlpha);
+      },
+      child: const Text('+ Alpha'),
+    );
+  }
+}
+
+class RotateLeftButton extends StatelessWidget {
+  const RotateLeftButton({
+    Key? key,
+    required this.store,
+  }) : super(key: key);
+
+  final Store<State, Actions?> store;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        store.dispatch(Actions.rotateLeft);
+      },
+      child: const Text('Rotate Left'),
+    );
+  }
+}
+
+class RotateRightButton extends StatelessWidget {
+  const RotateRightButton({
+    Key? key,
+    required this.store,
+  }) : super(key: key);
+
+  final Store<State, Actions?> store;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        store.dispatch(Actions.rotateRight);
+      },
+      child: const Text('Rotate Right'),
     );
   }
 }
